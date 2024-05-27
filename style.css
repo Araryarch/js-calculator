@@ -1,0 +1,88 @@
+:root {
+  --background: #24273a;
+  --surface: #363a4f;
+  --text: #cad3f5;
+  --text-light: #d7dae0;
+  --primary: #f4dbd6;
+  --secondary: #f5bde6;
+  --accent: #8aadf4;
+  --highlight: #eed49f;
+  --success: #a6da95;
+  --danger: #ed8796;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.calculator {
+  background-color: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.display {
+  background-color: var(--background);
+  color: var(--primary);
+  font-size: 2em;
+  text-align: right;
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 80px;
+  transition: height 0.3s ease;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+}
+
+.button {
+  background-color: var(--surface);
+  border: none;
+  padding: 20px;
+  font-size: 1.5em;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  -moz-transition: background-color 0.3s ease, color 0.3s ease;
+  -ms-transition: background-color 0.3s ease, color 0.3s ease;
+  -o-transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--highlight);
+  color: var(--background);
+}
+
+.button[data-action='operator'] {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+.button[data-action='clear'],
+.button[data-action='delete'] {
+  background-color: var(--danger);
+  color: var(--background);
+}
+
+.button[data-action='calculate'] {
+  grid-column: span 2;
+  background-color: var(--success);
+  color: var(--background);
+}
